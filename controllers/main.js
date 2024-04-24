@@ -1,4 +1,4 @@
-const staticFile = require("../appModules/http-utils/static-file");
+const { staticFile } = require("../appModules/http-utils");
 
 const mainRouteController = async (res, filePath, ext) => {
     res.statusCode = 200;
