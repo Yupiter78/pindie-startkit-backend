@@ -3,22 +3,21 @@ const path = require("path");
 const mimoTypes = require("./appModules/http-utils/mime-types");
 
 const staticFile = require("./appModules/http-utils/static-file");
+const mainRouteController = require("./controllers/main");
+const defaultRouteController = require("./controllers/default");
+const gameRouteController = require("./controllers/game");
 
 const server = http.createServer((req, res) => {
     const { url } = req;
     switch (url) {
         case "/":
-            res.statusCode = 200;
-            staticFile(res, "/index.html", ".html");
+            mainRouteController(res, "/index.html", ".html");
+            break;
+        case "/game":
+            gameRouteController(res);
             break;
         default:
-            const extname = String(path.extname(url)).toLowerCase();
-            if (extname in mimoTypes) {
-                staticFile(res, url, extname);
-            } else {
-                res.statusCode = 404;
-                res.end("Not found");
-            }
+            defaultRouteController(res, url);
     }
 });
 
