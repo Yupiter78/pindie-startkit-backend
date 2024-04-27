@@ -8,4 +8,9 @@ const getData = async (url) => {
     }
 };
 
-module.exports = { getData };
+const getRandomIndex = (array) => {
+    const randomIndex = Math.floor(Math.random() * array.length);
+    return array[randomIndex];
+};
+
+module.exports = { getData, getRandomIndex };
