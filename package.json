@@ -1,5 +1,24 @@
 {
+  "name": "pindie-startkit-backend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "dev": "nodemon app.js",
+    "start": "node app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Yupiter78/pindie-startkit-backend.git"
+  },
+  "author": "JS-Neo",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Yupiter78/pindie-startkit-backend/issues"
+  },
+  "homepage": "https://github.com/Yupiter78/pindie-startkit-backend#readme",
   "devDependencies": {
+    "nodemon": "^3.1.0",
     "prettier": "3.2.5"
   }
 }

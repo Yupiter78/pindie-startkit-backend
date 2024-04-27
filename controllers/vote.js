@@ -7,15 +7,15 @@ const voteRouteController = async (req, res) => {
         res.end("Not found");
     }
 
-    parseBody(req, (err, body) => {
-        if (err) {
-            res.statusCode = 500;
-            res.end("Internal Server Error");
-        }
+    try {
+        const body = await parseBody(req);
         console.log("body: ", body);
         res.statusCode = 200;
         res.end("Success!");
-    });
+    } catch (e) {
+        res.statusCode = 500;
+        res.end("Internal Server Error");
+    }
 };
 
 module.exports = voteRouteController;
